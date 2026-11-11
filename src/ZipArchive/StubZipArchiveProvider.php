@@ -10,10 +10,7 @@ class StubZipArchiveProvider implements ZipArchiveProvider
 {
     private FilesystemZipArchiveProvider $provider;
 
-    /**
-     * @var StubZipArchive
-     */
-    private $archive;
+    private ?StubZipArchive $archive = null;
 
     public function __construct(private string $filename, int $localDirectoryPermissions = 0700)
     {
@@ -22,7 +19,7 @@ class StubZipArchiveProvider implements ZipArchiveProvider
 
     public function createZipArchive(): ZipArchive
     {
-        if ( ! $this->archive instanceof StubZipArchive) {
+        if ( $this->archive === null) {
             $zipArchive = $this->provider->createZipArchive();
             $zipArchive->close();
             unset($zipArchive);

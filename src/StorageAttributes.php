@@ -6,7 +6,9 @@ namespace League\Flysystem;
 
 use ArrayAccess;
 use JsonSerializable;
-
+/**
+ * @extends ArrayAccess<mixed, mixed>
+ */
 interface StorageAttributes extends JsonSerializable, ArrayAccess
 {
     public const ATTRIBUTE_PATH = 'path';

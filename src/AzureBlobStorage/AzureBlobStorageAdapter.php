@@ -38,6 +38,7 @@ use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Common\Internal\Resources;
 use MicrosoftAzure\Storage\Common\Internal\StorageServiceSettings;
 use MicrosoftAzure\Storage\Common\Models\ContinuationToken;
+use MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
 use Throwable;
 use function base64_decode;
 use function bin2hex;
@@ -149,7 +150,7 @@ class AzureBlobStorageAdapter implements FilesystemAdapter, PublicUrlGenerator, 
                     $blob->getProperties()
                 );
             }
-
+            /** @var MarkerContinuationToken|null $continuationToken */
             $continuationToken = $response->getContinuationToken();
             $options->setContinuationToken($continuationToken);
         } while ($continuationToken instanceof ContinuationToken);
