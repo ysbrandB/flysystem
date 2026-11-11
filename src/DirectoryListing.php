@@ -11,6 +11,7 @@ use Traversable;
 
 /**
  * @template T
+ * @implements IteratorAggregate<mixed, T>
  */
 class DirectoryListing implements IteratorAggregate
 {

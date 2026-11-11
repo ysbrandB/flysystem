@@ -4,16 +4,14 @@ parameters:
     level: 6
     paths:
         - src
-    checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false
-    checkGenericClassInNonGenericObjectType: false
     scanFiles:
         - src/AdapterTestUtilities/test-functions.php
     excludePaths:
         - src/AdapterTestUtilities/
         - src/AsyncAwsS3
         - src/AwsS3V3
-        - src/FTP
+        - src/Ftp
         - src/InMemory
         - src/PhpseclibV2
         - src/PhpseclibV3
@@ -26,3 +24,4 @@ parameters:
         - '#Method League\\Flysystem\\AwsS3V3\\S3ClientStub.*#'
         - '#Constant NET_SFTP_TYPE_DIRECTORY not found\.#'
         - '#\$local_file of method phpseclib\\Net\\SFTP::get\(\) expects string, resource given#'
+        - identifier: missingType.iterableValue
