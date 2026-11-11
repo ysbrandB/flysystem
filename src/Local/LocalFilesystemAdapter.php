@@ -172,6 +172,9 @@ class LocalFilesystemAdapter implements FilesystemAdapter, ChecksumProvider
         }
     }
 
+    /**
+     * @param 0|1|2 $mode
+     */
     private function listDirectoryRecursively(
         string $path,
         int $mode = RecursiveIteratorIterator::SELF_FIRST
@@ -206,7 +209,7 @@ class LocalFilesystemAdapter implements FilesystemAdapter, ChecksumProvider
             return;
         }
 
-        /** @var SplFileInfo[] $iterator */
+        /** @var Generator<int, SplFileInfo> $iterator */
         $iterator = $deep ? $this->listDirectoryRecursively($location) : $this->listDirectory($location);
 
         foreach ($iterator as $fileInfo) {

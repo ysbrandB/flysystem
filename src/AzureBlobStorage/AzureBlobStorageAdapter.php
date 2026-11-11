@@ -198,10 +198,10 @@ class AzureBlobStorageAdapter implements FilesystemAdapter, PublicUrlGenerator, 
             foreach ($listResults->getBlobs() as $blob) {
                 $this->client->deleteBlob($this->container, $blob->getName());
             }
-
+            /** @var MarkerContinuationToken|null $continuationToken */
             $continuationToken = $listResults->getContinuationToken();
 
-            if ($continuationToken instanceof ContinuationToken) {
+            if ($continuationToken instanceof MarkerContinuationToken) {
                 $options->setContinuationToken($continuationToken);
                 goto start;
             }

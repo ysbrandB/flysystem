@@ -148,3 +148,8 @@ parameters:
 			message: "#^Parameter \\#1 \\$ftp of function ftp_close expects FTP\\\\Connection, resource given\\.$#"
 			count: 1
 			path: src/Ftp/RawListFtpConnectivityCheckerTest.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between League\\Flysystem\\FileAttributes and null will always evaluate to true\.$#'
+			count: 1
+			path: src/AzureBlobStorage/AzureBlobStorageAdapter.php

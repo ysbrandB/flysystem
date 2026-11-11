@@ -25,4 +25,6 @@ parameters:
         - '#Constant NET_SFTP_TYPE_DIRECTORY not found\.#'
         - '#\$local_file of method phpseclib\\Net\\SFTP::get\(\) expects string, resource given#'
         - '#Call to method PHPUnit\\Framework\\Assert::assertTrue\(\) with true will always evaluate to true\.#'
+        - '#Call to method PHPUnit\\Framework\\Assert::assertIsResource\(\) with resource will always evaluate to true\.#'
+        - '#Call to method PHPUnit\\Framework\\Assert::assertIsInt\(\) with int will always evaluate to true\.#'
         - identifier: missingType.iterableValue
